@@ -1,9 +1,11 @@
 import Head from "next/head";
 import Header from "../components/header";
 import HeroBanner from "../components/hero-banner";
-import { getHeroBanner, getNavbarLinks } from "../lib/api";
+import HeroBusinessPosts from "../components/hero-business-posts";
 
-export default function Home({heroBannerItem, navbarItems}) {
+import { getHeroBanner, getHeroBusinessPosts, getNavbarLinks } from "../lib/api";
+
+export default function Home({ heroBannerItem, navbarItems, heroBusinessPosts }) {
   return (
     <div>
       <Head>
@@ -42,6 +44,8 @@ export default function Home({heroBannerItem, navbarItems}) {
           subtitle={heroBannerItem.subtitle}
           image={heroBannerItem.image}
         />
+
+        <HeroBusinessPosts posts={heroBusinessPosts} />
       </main>
     </div>
   );
@@ -51,11 +55,13 @@ export async function getStaticProps({ preview = false }) {
   const navbarItems = (await getNavbarLinks(preview)) ?? [];
   const heroBannerItem =
     (await getHeroBanner("2rnwGP4Do9rt4mEInKkfgR", preview)) ?? [];
+  const heroBusinessPosts = (await getHeroBusinessPosts(preview)) ?? [];
 
   return {
     props: {
       navbarItems,
       heroBannerItem,
+      heroBusinessPosts,
     },
   };
 }
