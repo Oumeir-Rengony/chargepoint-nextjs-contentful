@@ -3,12 +3,14 @@ import Header from "../components/header";
 import HeroBanner from "../components/hero-banner";
 import HeroBusinessPosts from "../components/hero-business-posts";
 import HeroInformationPosts from "../components/hero-information-posts";
+import Footer from "../components/footer";
 
 import {
   getHeroBanner,
   getHeroBusinessPosts,
   getNavbarLinks,
   getHeroInformationPosts,
+  getFooterItems,
 } from "../lib/api";
 
 export default function Home({
@@ -16,6 +18,7 @@ export default function Home({
   navbarItems,
   heroBusinessPosts,
   heroInformationPosts,
+  footerItems,
 }) {
   return (
     <div>
@@ -60,6 +63,8 @@ export default function Home({
 
         <HeroInformationPosts posts={heroInformationPosts} />
       </main>
+
+      <Footer footerLinks={footerItems} />
     </div>
   );
 }
@@ -70,6 +75,8 @@ export async function getStaticProps({ preview = false }) {
     (await getHeroBanner("2rnwGP4Do9rt4mEInKkfgR", preview)) ?? [];
   const heroBusinessPosts = (await getHeroBusinessPosts(preview)) ?? [];
   const heroInformationPosts = (await getHeroInformationPosts(preview)) ?? [];
+  const footerItems =
+    (await getFooterItems("6MvmuULrfOogVp3ggKX7nY", preview)) ?? [];
 
   return {
     props: {
@@ -77,6 +84,7 @@ export async function getStaticProps({ preview = false }) {
       heroBannerItem,
       heroBusinessPosts,
       heroInformationPosts,
+      footerItems,
     },
   };
 }
