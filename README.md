@@ -4,7 +4,7 @@ This example showcases Next.js's [Static Generation](https://nextjs.org/docs/bas
 
 ## Demo
 
-### [https://next-blog-contentful.vercel.app/](https://next-blog-contentful.vercel.app/)
+### [https://chargepoint-nextjs-contentful.vercel.app/](https://chargepoint-nextjs-contentful.vercel.app/)
 
 ## Deploy your own
 
@@ -12,22 +12,6 @@ Once you have access to [the environment variables you'll need](#step-5-set-up-e
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/cms-contentful&project-name=cms-contentful&repository-name=cms-contentful&env=CONTENTFUL_SPACE_ID,CONTENTFUL_ACCESS_TOKEN,CONTENTFUL_PREVIEW_ACCESS_TOKEN,CONTENTFUL_PREVIEW_SECRET&envDescription=Required%20to%20connect%20the%20app%20with%20Contentful&envLink=https://vercel.link/cms-contentful-env)
 
-### Related examples
-
-- [WordPress](/examples/cms-wordpress)
-- [DatoCMS](/examples/cms-datocms)
-- [Sanity](/examples/cms-sanity)
-- [TakeShape](/examples/cms-takeshape)
-- [Prismic](/examples/cms-prismic)
-- [Strapi](/examples/cms-strapi)
-- [Agility CMS](/examples/cms-agilitycms)
-- [Cosmic](/examples/cms-cosmic)
-- [ButterCMS](/examples/cms-buttercms)
-- [Storyblok](/examples/cms-storyblok)
-- [GraphCMS](/examples/cms-graphcms)
-- [Kontent](/examples/cms-kontent)
-- [Ghost](/examples/cms-ghost)
-- [Blog Starter](/examples/blog-starter)
 
 ## How to use
 
