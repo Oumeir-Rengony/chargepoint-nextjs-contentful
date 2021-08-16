@@ -1,8 +1,9 @@
 import Head from "next/head";
+import Header from "../components/header";
 import HeroBanner from "../components/hero-banner";
-import { getHeroBanner } from "../lib/api";
+import { getHeroBanner, getNavbarLinks } from "../lib/api";
 
-export default function Home({heroBannerItem}) {
+export default function Home({heroBannerItem, navbarItems}) {
   return (
     <div>
       <Head>
@@ -32,6 +33,9 @@ export default function Home({heroBannerItem}) {
           crossOrigin=""
         />
       </Head>
+
+      <Header navLinks={navbarItems} />
+
       <main>
         <HeroBanner
           title={heroBannerItem.title}
@@ -44,11 +48,13 @@ export default function Home({heroBannerItem}) {
 }
 
 export async function getStaticProps({ preview = false }) {
+  const navbarItems = (await getNavbarLinks(preview)) ?? [];
   const heroBannerItem =
     (await getHeroBanner("2rnwGP4Do9rt4mEInKkfgR", preview)) ?? [];
 
   return {
     props: {
+      navbarItems,
       heroBannerItem,
     },
   };
