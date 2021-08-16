@@ -1,6 +1,8 @@
 import Head from "next/head";
+import HeroBanner from "../components/hero-banner";
+import { getHeroBanner } from "../lib/api";
 
-export default function Home() {
+export default function Home({heroBannerItem}) {
   return (
     <div>
       <Head>
@@ -30,11 +32,24 @@ export default function Home() {
           crossOrigin=""
         />
       </Head>
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+      <main>
+        <HeroBanner
+          title={heroBannerItem.title}
+          subtitle={heroBannerItem.subtitle}
+          image={heroBannerItem.image}
+        />
       </main>
     </div>
   );
+}
+
+export async function getStaticProps({ preview = false }) {
+  const heroBannerItem =
+    (await getHeroBanner("2rnwGP4Do9rt4mEInKkfgR", preview)) ?? [];
+
+  return {
+    props: {
+      heroBannerItem,
+    },
+  };
 }
